@@ -1,10 +1,9 @@
 const express = require('express');
+const homeController = require('./controllers/homeController');
 const app = express();
 const PORT = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello, World! whats upp');
-});
+app.get('/', (homeController.getHomePage))
 
 app.get('/blog', (req, res) => {
     res.send('whats good yall')
