@@ -1,17 +1,12 @@
-const express = require('express');
-const homeController = require('./controllers/homeController');
-const aboutController = require('./controllers/aboutController');
-const app = express();
-const PORT = 3000;
+const express = require ('express')
+const app = express()
 
-app.get('/', (homeController.getHomePage))
+//declare a route.. we can have multiple routes
 
-app.get('/about', (aboutController.getAboutPage))
+const about = require("./controllers/aboutController.js");
+// …
+app.use("/about", about);
 
-app.get('/blog', (req, res) => {
-    res.send('whats good yall')
+app.listen(3000, ()=>{
+    console.log("Node API app is running on port 3000 yayy")
 })
-
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
